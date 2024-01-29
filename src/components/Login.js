@@ -6,6 +6,7 @@ import {
 import Header from "./Header";
 import { checkValidate } from "../utils/validate";
 import { auth } from "../utils/firebase";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -98,12 +99,14 @@ const Login = () => {
         <p className="text-red-500 font-bold">
           {errMessage !== null ? errMessage : ""}
         </p>
-        <button
-          className="p-4 my-6 bg-red-700 w-full rounded-lg"
-          onClick={handleSubmit}
-        >
-          {isSignInForm ? "Sign In" : "Sign Up"}
-        </button>
+        <Link to={"/browse"}>
+          <button
+            className="p-4 my-6 bg-red-700 w-full rounded-lg"
+            // onClick={handleSubmit}
+          >
+            {isSignInForm ? "Sign In" : "Sign Up"}
+          </button>
+        </Link>
         <p className="py-4 cursor-pointer" onClick={toggleSignInForm}>
           {isSignInForm
             ? "New to Netflix? Sign Up Now"
